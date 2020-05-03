@@ -25,7 +25,7 @@ def gen_svg_struct():
 def create_svg():
     run(('transcrypt','core.py','-n'))
     run(('cp','-a','./__target__/.','.'))
-    #run(('rm','-rf','./__target__'))
+    run(('rm','-rf','./__target__'))
     with open('./index.html','w') as file:
         file.write("<html><svg height=\"300\" width=\"300\">\n")
         for x in gen_svg_struct():
