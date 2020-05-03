@@ -42,7 +42,11 @@ class Board:
         return Board(R2)
     def get_score(self):
         assert self.is_finished()
-        return sum(self.get_value(x) for x in neighbors(list(self.avtiles)[0]))
+        s = 0
+        for x in neighbors(list(self.avtiles)[0]):
+            print(x.tile)
+            s += self.get_value(x)
+        return s
     def get_move_mcts(self,x,rep):
         s = 0
         for i in range(rep):
