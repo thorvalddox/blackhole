@@ -76,6 +76,7 @@ class Tile:
         self.get_tile().addEventListener('click',self.fire)
         
     def fire(self):
+        print('move',self.tile)
         self.parent.player_move(self)
         
         
