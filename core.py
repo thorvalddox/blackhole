@@ -37,7 +37,7 @@ class Board:
         R = list(b.avtiles)
         shuffle(R)
         
-        R = R[-1]
+        R = R[:-1]
         R2 = b.moves[:]
         R2.extend(R)
         print(R2)
