@@ -61,8 +61,9 @@ class Board:
 
 
 class Tile:
-    def __init__(self,tile):
+    def __init__(self,tile,mv):
         self.tile = tile
+        self.move = mv
         
         
     def get_tile(self):
@@ -110,8 +111,9 @@ class Interact:
     def reflow(self):
         self.rf = document.getElementById('blackholeroot').offsetHeight
     def player_move(self,tile):
-        self.unregister()
         if not tile.tile in self.cb.avtiles:
+            return
+        if tile.move != len(self.cb.moves):
             return
         if self.lock:
             return
@@ -119,6 +121,7 @@ class Interact:
         self.perform_move(tile)
         self.perform_move(self.ai_tile())
         self.lock = False
+        self.register()
         
     def ai_tile(self):
         m = self.cb.best_move(100)
