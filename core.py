@@ -85,6 +85,7 @@ class Interact:
     def __init__(self):
         self.cb = Board([])
         self.tiles = {}
+        self.rf = 0
         
     def perform_move(self,tile):
         if not tile.tile in self.cb.avtiles:
@@ -102,12 +103,15 @@ class Interact:
         tile.get_tile().style.display = 'block'
         self.cb = self.cb.get_next(tile.tile)
         
+    def reflow(self):
+        self.rf = document.getElementById('blackholeroot').offsetHeight
     def player_move(self,tile):
         self.perform_move(tile)
+        self.reflow()
         self.perform_move(self.ai_tile())
         
     def ai_tile(self):
-        m = self.cb.best_move(1000)
+        m = self.cb.best_move(10000)
         #print(m)
         return self.tiles[m]
         

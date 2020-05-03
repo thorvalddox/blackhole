@@ -27,7 +27,7 @@ def create_svg():
     run(('cp','-a','./__target__/.','.'))
     run(('rm','-rf','./__target__'))
     with open('./index.html','w') as file:
-        file.write("<html><svg height=\"300\" width=\"300\">\n")
+        file.write("<html><svg height=\"300\" width=\"300\" id=\"blackholeroot\">\n")
         for x in gen_svg_struct():
             file.write(x+"\n")
         file.write("</svg>")
