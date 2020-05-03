@@ -24,12 +24,12 @@ def gen_svg_struct():
     
 def create_svg():
     run(('transcrypt','core.py','-n'))
-    with open('./__target__/output.html','w') as file:
+    with open('./index.html','w') as file:
         file.write("<html><svg height=\"300\" width=\"300\">\n")
         for x in gen_svg_struct():
             file.write(x+"\n")
         file.write("</svg>")
-        file.write("<script type=\"module\" src=\"core.js\"></script>\n</html>")
+        file.write("<script type=\"module\" src=\"__target__/core.js\"></script>\n</html>")
             
 create_svg()
 
