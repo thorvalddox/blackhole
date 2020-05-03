@@ -47,6 +47,7 @@ class Board:
         s = 0
         for i in range(rep):
             s += self.get_random_finish(x).get_score()
+        print(s,rep)
         return float(s)/rep
     def best_move(self,rep):
         smax = 0
