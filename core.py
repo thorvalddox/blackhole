@@ -75,6 +75,9 @@ class Tile:
         self.parent = parent
         self.get_tile().addEventListener('click',self.fire)
         
+    def unregister(self):
+        self.get_tile().removeEventListener('click',self.fire)
+        
     def fire(self):
         print('move',self.tile)
         self.parent.player_move(self)
@@ -107,6 +110,7 @@ class Interact:
     def reflow(self):
         self.rf = document.getElementById('blackholeroot').offsetHeight
     def player_move(self,tile):
+        self.unregister()
         if not tile.tile in self.cb.avtiles:
             return
         if self.lock:
@@ -127,6 +131,10 @@ class Interact:
             t = Tile(tile)
             t.register(self)
             self.tiles[tile] = t
+            
+    def unregister(self):
+        for v in self.tiles.values():
+            v.unregister()
 
         #print(self.tiles)
 
