@@ -40,7 +40,7 @@ class Board:
         R = R[:-1]
         R2 = b.moves[:]
         R2.extend(R)
-        print(R2)
+        #print(R2)
         return Board(R2)
     def get_score(self):
         assert self.is_finished()
