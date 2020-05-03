@@ -131,7 +131,7 @@ class Interact:
         
     def register(self):
         for tile in tiles:
-            t = Tile(tile)
+            t = Tile(tile,len(self.cb.moves))
             t.register(self)
             self.tiles[tile] = t
             
