@@ -133,8 +133,8 @@ class Interact:
             self.tiles[tile] = t
             
     def unregister(self):
-        for v in self.tiles.values():
-            print(v)
+        for k,v in self.tiles.items():
+            print(k)
             v.unregister()
 
         #print(self.tiles)
