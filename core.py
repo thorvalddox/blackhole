@@ -111,6 +111,8 @@ class Interact:
     def reflow(self):
         self.rf = document.getElementById('blackholeroot').offsetHeight
     def player_move(self,tile):
+        print(tile.tile)
+        print(tile.move)
         if not tile.tile in self.cb.avtiles:
             return
         if tile.move != len(self.cb.moves):
