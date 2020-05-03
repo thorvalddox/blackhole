@@ -73,7 +73,7 @@ class Tile:
     
     def register(self,parent):
         self.parent = parent
-        self.get_tile().bind('click',self.fire)
+        self.get_tile().addEventListener('click',self.fire)
         
     def fire(self):
         self.parent.player_move(self)
@@ -113,7 +113,7 @@ class Interact:
         self.perform_move(tile)
         self.reflow()
         self.perform_move(self.ai_tile())
-        self.lock = False
+        self.buzy = False
         
     def ai_tile(self):
         m = self.cb.best_move(10000)
@@ -126,6 +126,7 @@ class Interact:
             t = Tile(tile)
             t.register(self)
             self.tiles[tile] = t
+
         #print(self.tiles)
 
         
