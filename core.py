@@ -134,7 +134,7 @@ class Interact:
             
     def unregister(self):
         for k,v in self.tiles.items():
-            print(k)
+            print(k,v.tile)
             v.unregister()
 
         #print(self.tiles)
