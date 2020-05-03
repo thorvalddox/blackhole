@@ -36,10 +36,11 @@ class Board:
         b = self.get_next(firstmove)
         R = list(b.avtiles)
         shuffle(R)
-        print(R)
+        
         R = R[-1]
         R2 = b.moves[:]
         R2.extend(R)
+        print(R2)
         return Board(R2)
     def get_score(self):
         assert self.is_finished()
