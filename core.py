@@ -36,6 +36,7 @@ class Board:
         b = self.get_next(firstmove)
         R = list(b.avtiles)
         shuffle(R)
+        print(R)
         R = R[-1]
         R2 = b.moves[:]
         R2.extend(R)
@@ -44,15 +45,15 @@ class Board:
         assert self.is_finished()
         s = 0
         for x in neighbors(list(self.avtiles)[0]):
-            print(x,s)
+            #print(x,s)
             s += self.get_value(x)
         return s
     def get_move_mcts(self,x,rep):
         s = 0
         for i in range(rep):
-            print(s)
+            #print(s)
             s += self.get_random_finish(x).get_score()
-        print(s,rep)
+        #print(s,rep)
         return float(s)/rep
     def best_move(self,rep):
         smax = 0
