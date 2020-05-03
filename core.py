@@ -44,7 +44,7 @@ class Board:
         assert self.is_finished()
         s = 0
         for x in neighbors(list(self.avtiles)[0]):
-            print(x.tile)
+            print(x)
             s += self.get_value(x)
         return s
     def get_move_mcts(self,x,rep):
