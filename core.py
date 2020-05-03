@@ -121,7 +121,7 @@ class Interact:
         self.lock = False
         
     def ai_tile(self):
-        m = self.cb.best_move(10000)
+        m = self.cb.best_move(100)
         #print(m)
         return self.tiles[m]
         
