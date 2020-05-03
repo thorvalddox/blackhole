@@ -73,7 +73,7 @@ class Tile:
     
     def register(self,parent):
         self.parent = parent
-        self.get_tile().addEventListener('click',self.fire)
+        self.get_tile().bind('click',self.fire)
         
     def fire(self):
         self.parent.player_move(self)
