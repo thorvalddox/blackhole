@@ -114,7 +114,7 @@ class Interact:
         self.perform_move(tile)
         self.reflow()
         self.perform_move(self.ai_tile())
-        self.buzy = False
+        self.lock = False
         
     def ai_tile(self):
         m = self.cb.best_move(100)
