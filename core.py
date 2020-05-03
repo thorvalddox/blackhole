@@ -90,8 +90,7 @@ class Interact:
         self.lock = False
         
     def perform_move(self,tile):
-        if not tile.tile in self.cb.avtiles:
-            return
+        
         if len(self.cb.avtiles) <= 1:
             return
         token = tokens[len(self.cb.moves)]
@@ -108,11 +107,12 @@ class Interact:
     def reflow(self):
         self.rf = document.getElementById('blackholeroot').offsetHeight
     def player_move(self,tile):
+        if not tile.tile in self.cb.avtiles:
+            return
         if self.lock:
             return
         self.lock = True
         self.perform_move(tile)
-        self.reflow()
         self.perform_move(self.ai_tile())
         self.lock = False
         
