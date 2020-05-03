@@ -46,6 +46,7 @@ class Board:
     def get_move_mcts(self,x,rep):
         s = 0
         for i in range(rep):
+            print(s)
             s += self.get_random_finish(x).get_score()
         print(s,rep)
         return float(s)/rep
