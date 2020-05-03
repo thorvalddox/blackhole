@@ -135,7 +135,7 @@ class Interact:
         self.register()
         
     def ai_tile(self):
-        m = self.cb.best_move(1000)
+        m = self.cb.best_move(10000)
         #print(m)
         return self.tiles[m]
         
