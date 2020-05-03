@@ -32,6 +32,8 @@ def create_svg():
             file.write(x+"\n")
         file.write("</svg>")
         file.write("<script type=\"module\" src=\"core.js\"></script>\n</html>")
+    run(('git','add','-A'))
+    run(('git','commit','-m',input('message')))
             
 create_svg()
 
