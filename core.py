@@ -142,6 +142,9 @@ class Interact:
         elif self.cb.get_score() > 0:
             S("#text_blue").css( {'font-weight':"bold"})
             S("#text_blue2").text('winner')
+        else:
+            S("#text_orange2").text('draw')
+            S("#text_blue2").text('draw')
     def set_difficulty(self,newval):
         self.difficulty = newval
         
