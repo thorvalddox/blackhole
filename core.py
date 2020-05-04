@@ -131,10 +131,12 @@ class Interact:
                 get_text(x).css( {'fill':"grey"})
         S("#text_orange").text(self.cb.get_score_single(True))
         S("#text_blue").text(self.cb.get_score_single(False))
-        if self.cb.get_score() > 0:
+        if self.cb.get_score() < 0:
             S("#text_orange").css( {'font-weight':"bold"})
-        elif self.cb.get_score() < 0:
+            S("#text_orange2").text('winner')
+        elif self.cb.get_score() > 0:
             S("#text_blue").css( {'font-weight':"bold"})
+            S("#text_blue2").text('winner')
     def set_difficulty(self,newval):
         self.difficulty = newval
         

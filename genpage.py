@@ -23,6 +23,8 @@ def gen_svg_struct():
         yield from gen_polygon_2(x)
     yield f"""<text x="40" y="140" font-size=22 fill="#d84800" text-anchor="middle" dominant-baseline="central" id="text_orange"></text>"""
     yield f"""<text x="200" y="140" font-size=22 fill="blue" text-anchor="middle" dominant-baseline="central" id="text_blue"></text>"""
+    yield f"""<text x="40" y="180" fill="#d84800" text-anchor="middle" dominant-baseline="central" id="text_orange2"></text>"""
+    yield f"""<text x="200" y="180" fill="blue" text-anchor="middle" dominant-baseline="central" id="text_blue2"></text>"""
     
     
 def create_svg():
