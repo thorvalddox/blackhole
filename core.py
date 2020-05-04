@@ -130,6 +130,7 @@ class Interact:
         
     def register(self):
         for tile in tiles:
+            print(tile)
             get_tile(tile).one('click',tile,self.player_move)
             
             
