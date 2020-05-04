@@ -49,6 +49,16 @@ class Board:
             #print(x,s)
             s += self.get_value(x)
         return s
+    def get_score_single(self,flip):
+        assert self.is_finished()
+        s = 0
+        for x in neighbors(list(self.avtiles)[0]):
+            #print(x,s)
+            if flip:
+                s += max(self.get_value(x),0)
+            else:
+                s += min(self.get_value(x),0)
+        return s
     def get_move_mcts(self,x,rep):
         s = 0
         for i in range(rep):
