@@ -116,7 +116,7 @@ class Interact:
             return
         for x in tiles:
             if x not in neighbors(list(self.cb.avtiles)[0]):
-                get_text(x).css( {'font-weight':"bold"})
+                get_text(x).css( {'fill':"grey"})
             else:
                 get_text(x).css( {'font-weight':"bold"})
     
