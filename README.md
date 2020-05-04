@@ -5,4 +5,8 @@ Rules can be found here https://www.youtube.com/watch?v=zMLE7a3faI4
 
 github pages can be found at:
 
-https://thorvalddox.github.io/blackhole/
+easy: https://thorvalddox.github.io/blackhole/?nds=0
+
+medium: https://thorvalddox.github.io/blackhole/?nds=1
+
+hard: https://thorvalddox.github.io/blackhole/?nds=2
