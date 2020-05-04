@@ -69,21 +69,6 @@ class Board:
 
 
 
-class Tile:
-    def __init__(self,tile,mv):
-        self.tile = tile
-        self.move = mv    
-    
-    def register(self,parent):
-        self.parent = parent
-        self.get_tile().bind('click',self.fire)
-        
-    def unregister(self):
-        self.get_tile().removeEventListener('click',self.fire)
-        
-    def fire(self):
-        print('move',self.tile)
-        self.parent.player_move(self)
         
 def get_tile(tile):        
     return S(f'#tile_{tile}')
