@@ -96,7 +96,8 @@ class Interact:
         get_tile(tile).style.display = 'block'
         self.cb = self.cb.get_next(tile)
         
-    def player_move(self,tile):
+    def player_move(self,event):
+        tile = event.data.tile
         print('click')
         self.unregister()
         print(tile)
@@ -116,12 +117,12 @@ class Interact:
     def register(self):
         for tile in tiles:
             print(tile)
-            get_tile(tile).one('click',tile,self.player_move)
+            get_tile(tile).one('click',{ 'tile': tile },self.player_move)
             
             
     def unregister(self):
         for tile in tiles:
-            get_tile(tile).off('click',tile,self.player_move)
+            get_tile(tile).off('click',{ 'tile': tile },self.player_move)
 
 
         #print(self.tiles)
