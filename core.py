@@ -89,7 +89,7 @@ class Interact:
         token = tokens[len(self.cb.moves)]
         #print(token)
 
-        get_tile(tile).style.fill = 'orange' if token > 0 else 'cyan'
+        get_tile(tile).css( dict(fill= ('orange' if token > 0 else 'cyan')))
 
         get_text(tile).innerHTML = str(abs(token))
         get_tile(tile).style.display = 'none'
