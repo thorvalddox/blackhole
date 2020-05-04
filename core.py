@@ -112,6 +112,7 @@ class Interact:
         self.cb = self.cb.get_next(tile)
         
     def player_move(self,tile):
+        print('click')
         self.unregister()
         print(tile)
         if not tile in self.cb.avtiles:
