@@ -65,6 +65,7 @@ class Board:
             if bm is None or smax < s:
                 s = smax
                 bm = x
+        print(bm)
         return bm
 
 
