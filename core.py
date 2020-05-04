@@ -61,7 +61,7 @@ class Board:
         bm = None
         for x in self.avtiles:
             s = self.get_move_mcts(x, rep)
-            #print(s)
+            print(x,s)
             if bm is None or smax < s:
                 s = smax
                 bm = x
