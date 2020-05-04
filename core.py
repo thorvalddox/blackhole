@@ -72,18 +72,11 @@ class Board:
 class Tile:
     def __init__(self,tile,mv):
         self.tile = tile
-        self.move = mv
-        
-        
-    def get_tile(self):
-        return S(f'tile_{self.tile}')
-
-    def get_text(self):
-        return S(f'text_{self.tile}')
+        self.move = mv    
     
     def register(self,parent):
         self.parent = parent
-        self.get_tile().addEventListener('click',self.fire)
+        self.get_tile().bind('click',self.fire)
         
     def unregister(self):
         self.get_tile().removeEventListener('click',self.fire)
@@ -92,15 +85,16 @@ class Tile:
         print('move',self.tile)
         self.parent.player_move(self)
         
-        
-        
+def get_tile(tile):        
+    return S(f'tile_{self.tile}')
+
+def get_text(file):
+    return S(f'text_{self.tile}')
 
 class Interact:
     def __init__(self):
         self.cb = Board([])
-        self.tiles = {}
         self.rf = 0
-        self.lock = False
         self.difficulty = 100
         
     def perform_move(self,tile):
@@ -109,45 +103,37 @@ class Interact:
             return
         token = tokens[len(self.cb.moves)]
         #print(token)
-        if token > 0:
-            tile.get_tile().style.fill = 'orange'
-        else:
-            tile.get_tile().style.fill = 'cyan'
-        tile.get_text().innerHTML = str(abs(token))
-        tile.get_tile().style.display = 'none'
-        tile.get_tile().style.display = 'block'
-        self.cb = self.cb.get_next(tile.tile)
+
+        get_tile(tile).style.fill = 'orange' if token > 0 else 'cyan'
+
+        get_text(tile).innerHTML = str(abs(token))
+        get_tile(tile).style.display = 'none'
+        get_tile(tile).style.display = 'block'
+        self.cb = self.cb.get_next(tile)
         
     def player_move(self,tile):
-        print(tile.tile)
-        print(tile.move)
-        if not tile.tile in self.cb.avtiles:
+        self.unregister()
+        print(tile)
+        if not tile in self.cb.avtiles:
             return
-        if tile.move != len(self.cb.moves):
-            return
-        if self.lock:
-            return
-        self.lock = True
         self.perform_move(tile)
         self.perform_move(self.ai_tile())
-        self.lock = False
         
     def ai_tile(self):
         m = self.cb.best_move(10000)
         #print(m)
-        return self.tiles[m]
+        return m
         
         
     def register(self):
         for tile in tiles:
-            t = Tile(tile,len(self.cb.moves))
-            t.register(self)
-            self.tiles[tile] = t
+            get_tile(tile).one('click',tile,self.player_move)
+            
             
     def unregister(self):
-        for k,v in self.tiles.items():
-            print(k,v.tile)
-            v.unregister()
+        for tile in tiles:
+            get_tile(tile).off('click',tile,self.player_move)
+
 
         #print(self.tiles)
 
