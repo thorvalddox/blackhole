@@ -81,7 +81,7 @@ class Interact:
     def __init__(self):
         self.cb = Board([])
         self.rf = 0
-        self.difficulty = 10000
+        self.difficulty = 100000
         
     def perform_move(self,tile):
         
