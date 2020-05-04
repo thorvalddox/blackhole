@@ -27,7 +27,9 @@ def create_svg():
     run(('cp','-a','./__target__/.','.'))
     run(('rm','-rf','./__target__'))
     with open('./index.html','w') as file:
-        file.write("<html><svg height=\"300\" width=\"300\" id=\"blackholeroot\">\n")
+        file.write("<html>\n")
+        file.write("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n")
+        file.write('<svg height=\"300\" width=\"300\" id=\"blackholeroot\">\n')
         for x in gen_svg_struct():
             file.write(x+"\n")
         file.write("</svg>")

@@ -1,6 +1,6 @@
-
 from random import shuffle
 
+__pragma__('alias', 'S', '$')
 
 tokens = [1,-1,2,-2,3,-3,4,-4,5,-5,6,-6,7,-7,8,-8,9,-9,10,-10]
 tiles = [0,1,2,3,4,5,10,11,12,13,14,20,21,22,23,30,31,32,40,41,50]
@@ -76,10 +76,10 @@ class Tile:
         
         
     def get_tile(self):
-        return document.getElementById (f'tile_{self.tile}')
+        return S(f'tile_{self.tile}')
 
     def get_text(self):
-        return document.getElementById (f'text_{self.tile}')
+        return S(f'text_{self.tile}')
     
     def register(self,parent):
         self.parent = parent
@@ -101,6 +101,7 @@ class Interact:
         self.tiles = {}
         self.rf = 0
         self.lock = False
+        self.difficulty = 100
         
     def perform_move(self,tile):
         
@@ -117,8 +118,6 @@ class Interact:
         tile.get_tile().style.display = 'block'
         self.cb = self.cb.get_next(tile.tile)
         
-    def reflow(self):
-        self.rf = document.getElementById('blackholeroot').offsetHeight
     def player_move(self,tile):
         print(tile.tile)
         print(tile.move)
@@ -132,7 +131,6 @@ class Interact:
         self.perform_move(tile)
         self.perform_move(self.ai_tile())
         self.lock = False
-        self.register()
         
     def ai_tile(self):
         m = self.cb.best_move(10000)

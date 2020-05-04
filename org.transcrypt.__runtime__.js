@@ -1,4 +1,4 @@
-// Transcrypt'ed from Python, 2020-05-03 17:04:53
+// Transcrypt'ed from Python, 2020-05-04 08:36:57
 var __name__ = 'org.transcrypt.__runtime__';
 export var __envir__ = {};
 __envir__.interpreter_name = 'python';
