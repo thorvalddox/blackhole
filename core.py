@@ -91,7 +91,12 @@ class Interact:
     def __init__(self):
         self.cb = Board([])
         self.rf = 0
-        self.difficulty = 100_000
+        s = URLSearchParams(window.location.search)
+        if s.has('nds'):
+            d = nds
+        else:
+            d = 0
+        self.difficulty = 1000*10**d
         
     def perform_move(self,tile):
         
