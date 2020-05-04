@@ -59,8 +59,9 @@ class Board:
     def best_move(self,rep):
         smax = 0
         bm = None
+        sz = len(self.avtiles)
         for x in self.avtiles:
-            s = self.get_move_mcts(x, rep)
+            s = self.get_move_mcts(x, rep//sz)
             if bm is None or smax < s:
                 smax = s
                 bm = x
