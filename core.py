@@ -104,11 +104,21 @@ class Interact:
             return
         self.perform_move(tile)
         self.perform_move(self.ai_tile())
+        self.check_finished()
         
     def ai_tile(self):
         m = self.cb.best_move(self.difficulty)
         #print(m)
         return m
+    
+    def check_finished(self):
+        if not self.cb.is_finished():
+            return
+        for x in tiles:
+            if x not in neighbors(list(self.cb.avtiles)[0]):
+                get_text(x).css( {'font-weight':"bold"})
+            else:
+                get_text(x).css( {'font-weight':"bold"})
     
     def set_difficulty(self,newval):
         self.difficulty = newval
