@@ -120,10 +120,12 @@ class Interact:
         self.perform_move(self.ai_tile())
         
     def ai_tile(self):
-        m = self.cb.best_move(10000)
+        m = self.cb.best_move(self.difficulty)
         #print(m)
         return m
-        
+    
+    def set_difficulty(self,newval):
+        self.difficulty = newval
         
     def register(self):
         for tile in tiles:
