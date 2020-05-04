@@ -57,16 +57,9 @@ class Board:
         #print(s,rep)
         return float(s)/rep
     def best_move(self,rep):
-        smax = 0
-        bm = None
-        for x in self.avtiles:
-            s = self.get_move_mcts(x, rep)
-            print(x,s)
-            if bm is None or smax < s:
-                s = smax
-                bm = x
-        print(bm)
-        return bm
+        def val(x):
+            return self.get_move_mcts(x, rep)
+        return max(self.avtiles,key=val)
 
 
 
