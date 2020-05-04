@@ -93,7 +93,7 @@ class Interact:
         self.rf = 0
         s = __new__ (URLSearchParams(window.location.search))
         if s.has('nds'):
-            d = s.get('nds')
+            d = s.getAll('nds')[0]
         else:
             d = 0
         self.difficulty = 1000*10**d
