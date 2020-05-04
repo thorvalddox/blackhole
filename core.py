@@ -65,7 +65,7 @@ class Board:
             if bm is None or smax < s:
                 smax = s
                 bm = x
-        print(bm,smax)
+        #print(bm,smax)
         return bm
 
 
@@ -99,7 +99,7 @@ class Interact:
         tile = event.data.tile
         print('click')
         self.unregister()
-        print(tile)
+        #print(tile)
         if not tile in self.cb.avtiles:
             return
         self.perform_move(tile)
@@ -115,17 +115,18 @@ class Interact:
         if not self.cb.is_finished():
             return
         for x in tiles:
-            if x not in neighbors(list(self.cb.avtiles)[0]):
-                get_text(x).css( {'fill':"grey"})
-            else:
+            print(neighbors(list(self.cb.avtiles)[0]))
+            if x in neighbors(list(self.cb.avtiles)[0]):
                 get_text(x).css( {'font-weight':"bold"})
+            else:
+                get_text(x).css( {'fill':"grey"})
     
     def set_difficulty(self,newval):
         self.difficulty = newval
         
     def register(self):
         for tile in tiles:
-            print(tile)
+            #print(tile)
             get_tile(tile).one('click',{ 'tile': tile },self.player_move)
             
             
