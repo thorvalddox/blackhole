@@ -4,7 +4,7 @@ tiles = [0,1,2,3,4,5,10,11,12,13,14,20,21,22,23,30,31,32,40,41,50]
 def gen_polygon(index):
     x = index % 10
     y = index // 10
-    sz = 20
+    sz = 10
     sx = x * 4 + y*2
     sy = y*3 
     for xx,yy in [(2,2),(2,0),(4,1),(4,3),(2,4),(0,3),(0,1)]:
@@ -29,7 +29,7 @@ def create_svg():
     with open('./index.html','w') as file:
         file.write("<html>\n")
         file.write("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n")
-        file.write('<svg height=\"600\" width=\"800\" id=\"blackholeroot\">\n')
+        file.write('<svg height=\"300\" width=\"300\" id=\"blackholeroot\">\n')
         for x in gen_svg_struct():
             file.write(x+"\n")
         file.write("</svg>")
