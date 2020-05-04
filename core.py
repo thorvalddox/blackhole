@@ -115,7 +115,7 @@ class Interact:
         if not self.cb.is_finished():
             return
         for x in tiles:
-            print(neighbors(list(self.cb.avtiles)[0]))
+            print(list(neighbors(list(self.cb.avtiles)[0])))
             if x in neighbors(list(self.cb.avtiles)[0]):
                 get_text(x).css( {'font-weight':"bold"})
             else:
