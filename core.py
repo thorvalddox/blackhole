@@ -91,7 +91,7 @@ class Interact:
 
         get_tile(tile).css( dict(fill= ('orange' if token > 0 else 'cyan')))
 
-        get_text(tile).innerHTML = str(abs(token))
+        get_text(tile).text(str(abs(token)))
         self.cb = self.cb.get_next(tile)
         
     def player_move(self,event):
