@@ -129,6 +129,8 @@ class Interact:
                 get_text(x).css( {'font-weight':"bold"})
             else:
                 get_text(x).css( {'fill':"grey"})
+        S("#text_orange").text(self.cb.get_score_single(True))
+        S("#text_blue").text(self.cb.get_score_single(False))
     
     def set_difficulty(self,newval):
         self.difficulty = newval
