@@ -86,10 +86,10 @@ class Tile:
         self.parent.player_move(self)
         
 def get_tile(tile):        
-    return S(f'tile_{self.tile}')
+    return S(f'tile_{tile}')
 
 def get_text(file):
-    return S(f'text_{self.tile}')
+    return S(f'text_{tile}')
 
 class Interact:
     def __init__(self):
