@@ -91,7 +91,7 @@ class Interact:
     def __init__(self):
         self.cb = Board([])
         self.rf = 0
-        s = URLSearchParams(window.location.search)
+        s = __new__ (URLSearchParams(window.location.search))
         if s.has('nds'):
             d = nds
         else:
