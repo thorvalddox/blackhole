@@ -140,3 +140,4 @@ export var modf = function (n) {
 //# sourceMappingURL=math.map
 //# sourceMappingURL=math.map
 //# sourceMappingURL=math.map
+//# sourceMappingURL=math.map
