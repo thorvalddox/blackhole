@@ -73,7 +73,7 @@ class Board:
 def get_tile(tile):        
     return S(f'#tile_{tile}')
 
-def get_text(file):
+def get_text(tile):
     return S(f'#text_{tile}')
 
 class Interact:
