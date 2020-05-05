@@ -1,4 +1,5 @@
 from random import shuffle
+from math import copysign
 
 __pragma__('alias', 'S', '$')
 
@@ -63,7 +64,7 @@ class Board:
         s = 0
         for i in range(rep):
             #print(s)
-            s += self.get_random_finish(x).get_score()
+            s += copysign(1,self.get_random_finish(x).get_score())
         #print(s,rep)
         return float(s)/rep
     def best_move(self,rep):
