@@ -1,5 +1,4 @@
 from random import shuffle
-from math import copysign
 
 __pragma__('alias', 'S', '$')
 
